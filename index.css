@@ -201,6 +201,19 @@ footer .copyright {
         grid-template-columns: 100%;
         text-align: center;
     }
+    .priceBox {
+        grid-template-columns: auto;
+    }
+    .contact {
+        grid-template-columns: 100%;
+    }
+    footer {
+        height: 700px;
+    }
+    footer .footerBox {
+        grid-template-columns: 100%;
+        text-align: center;
+    }
   }
   /*平板*/
 
@@ -213,7 +226,7 @@ footer .copyright {
         margin-top: 100px;
     }
     .box .picture {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 }
 /*桌機*/
