@@ -1,0 +1,88 @@
+mixin CreateBox(title, content, button, imgName)
+    .box(data-aos="fade" data-aos-duration="3000" data-aos-delay="1000")
+        .content
+            h1=title
+            p=content
+            a(href="#" class="button")=button
+        .picture
+            img(src=imgName)
+
+mixin CreateTitle(title, content)
+    .title
+        h1=title
+        p=content
+
+mixin CreatePrice(className, count, title, price)
+    div(class=className)
+        - for (var i=1; i<= count; i++)
+            img(src="icon.png")
+        h2=title
+        h3 #[span=price] #[span / year]
+        ul
+            li 寵物講座
+            li 飼料試吃包
+            li 寵物寫真
+            li 寵物旅館
+            li 寵物健康檢查
+        a(href="#" class="button") 購買
+
+<!DOCTYPE html>
+html(lang="zh")
+    head
+        meta(charset="UTF-8")
+        title DogLife.
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        link(rel="stylesheet", href="index.css")
+    body
+        .main
+            include nav.pug
+            +CreateBox("我們愛狗", "我們是一群熱愛狗的人士，為了保護與關懷狗建立此網站。", "詳閱", "dog1.jpg")
+            +CreateTitle("歡迎來到我們的網站", "在我們的網站內，你可以找到跟寵物相關的資訊。")
+            +CreateBox("快樂的寵物", "讓寵物擁有開心的生活空間與品質。", "詳閱", "dog2.jpg")
+            +CreateBox("寵物寫真", "我們提供寵物寫真服務，幫寵物拍得美美的，這隻叫做學長嘉浤。", "詳閱", "dog3.jpg")
+            +CreateTitle("價格表", "我們網站提供三種付費服務，您可以根據自己的需求選擇。")
+            .priceBox
+                +CreatePrice("basic", 1, "基本", "500 元")
+                +CreatePrice("premium", 2, "高級", "1000 元")
+                +CreatePrice("professional", 3, "進階", "3000 元")
+        .gray        
+            +CreateTitle("聯絡我們", "如果有任何問題，歡迎來信通知我們。")
+            .contact
+                form
+                    label(for="name") 姓名
+                    input(type="text" id="name")
+                    label(for="email") 信箱
+                    input(type="email" id="email")
+                    label(for="message") 訊息
+                    textarea(name="message" id="message" cols="30" rows="10")
+                    input(type="submit" value="確定送出" class="button")
+                .text
+                    h3 地址
+                    p 台中市汪汪路一段777號
+                    h3 信箱
+                    p dog777@gmail.com
+                    h3 電話
+                    p 02-22222222
+        footer
+            .footerBox
+                .smallBox
+                    h3 關於我們
+                    p 歡迎來到我們的網站", "在我們的網站內，你可以找到跟寵物相關的資訊。
+                .smallBox
+                    h3 快速連結
+                    ul
+                        li #[a(href="#") 首頁]
+                        li #[a(href="#") 關於]
+                        li #[a(href="#") 價格]
+                        li #[a(href="#") 聯絡]
+                .smallBox
+                    h3 追蹤我們
+                    a(href="#") #[img(src="icon-fb.png", alt="facebook")]
+                    a(href="#") #[img(src="icon-ig.png", alt="instagram")]
+                    a(href="#") #[img(src="icon-yt.png", alt="youtube")]
+            hr
+            .copyright KID &copy; 2019
+        | <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        | <script>
+        |   AOS.init();
+        | </script>
